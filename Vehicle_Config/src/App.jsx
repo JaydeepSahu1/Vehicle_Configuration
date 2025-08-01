@@ -8,7 +8,9 @@ import DefaultConfigurationPage from './pages/DefaultConfigurationPage';
 import ConfigurePage from './pages/ConfigurePage';
 import InvoicePage from './pages/InvoicePage';
 import AboutUs from './pages/AboutUs';
-
+import ContactUs from './pages/ContactUs';
+import Feedback from './pages/Feedback';
+import Help from './pages/Help';
 function App() {
   return (
     <Router>
@@ -22,6 +24,9 @@ function App() {
           <Route path="/configure" element={<ConfigurePage/>}/>
           <Route path="/about" element={<AboutUs/>}/>
           <Route path="/invoice" element={<InvoicePage/>}/>
+          <Route path="/contact" element={<ContactUs/>}/>
+          <Route path="/feedback" element={<Feedback/>}/>
+          <Route path="/help" element={<Help/>}/>
         </Routes>
       </Layout>
     </Router>

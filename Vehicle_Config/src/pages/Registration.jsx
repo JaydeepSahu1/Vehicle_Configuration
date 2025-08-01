@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 Import navigation hook
+import { useNavigate } from "react-router-dom";
 
 function RegistrationForm() {
-  const navigate = useNavigate(); // 👈 Initialize navigation
+  const navigate = useNavigate();
 
   const initialForm = {
     companyName: "", address1: "", address2: "", area: "", city: "", state: "", pin: "",
     tel: "", fax: "", holding: "", authorizedPerson: "", designation: "",
-    telAuth: "", cell: "", stNo: "", vatNo: "", pan: ""
+    telAuth: "", cell: "", stNo: "", vatNo: "", pan: "",
+    email: "", password: ""
   };
 
   const [form, setForm] = useState(initialForm);
@@ -23,7 +24,10 @@ function RegistrationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requiredFields = ["companyName", "address1", "city", "state", "pin", "holding", "authorizedPerson", "designation"];
+    const requiredFields = [
+      "companyName", "address1", "city", "state", "pin",
+      "holding", "authorizedPerson", "designation", "email", "password"
+    ];
     for (let field of requiredFields) {
       if (!form[field]) {
         alert("Please fill all mandatory (*) fields.");
@@ -34,8 +38,7 @@ function RegistrationForm() {
     const registrationNumber = "REG-" + Date.now();
     alert(`Registration Successful!\nYour Registration Number: ${registrationNumber}`);
     handleClear();
-
-    navigate("/signin"); // 👈 Redirect to Sign In page
+    navigate("/signin");
   };
 
   return (
@@ -69,6 +72,8 @@ function RegistrationForm() {
           marginTop: "1rem"
         }}
       >
+        
+        {/* Company Info Fields */}
         {[
           { label: "Name of the company *", name: "companyName" },
           { label: "Address Line 1 *", name: "address1" },
@@ -102,6 +107,7 @@ function RegistrationForm() {
           />
         ))}
 
+        {/* Holding Type */}
         <select
           name="holding"
           value={form.holding}
@@ -120,6 +126,37 @@ function RegistrationForm() {
           <option value="Ltd">Ltd</option>
         </select>
 
+{/* Email & Password */}
+        <input
+          type="email"
+          placeholder="Email *"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          required
+          style={{
+            padding: "0.8rem",
+            borderRadius: "4px",
+            border: "none",
+            fontSize: "1rem"
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Password *"
+          name="password"
+          value={form.password}
+          onChange={handleChange}
+          required
+          style={{
+            padding: "0.8rem",
+            borderRadius: "4px",
+            border: "none",
+            fontSize: "1rem"
+          }}
+        />
+
+        {/* Buttons */}
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", marginTop: "1rem" }}>
           <button
             type="submit"

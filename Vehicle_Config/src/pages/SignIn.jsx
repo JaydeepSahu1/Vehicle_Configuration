@@ -1,21 +1,38 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 Import navigation hook
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // 👈 Initialize navigation
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const signedIn = localStorage.getItem("signedIn");
+    if (signedIn === "true") {
+      setIsSignedIn(true);
+    }
+  }, []);
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
-    // Simulated authentication logic
     if (email && password) {
+      localStorage.setItem("signedIn", "true");
+      localStorage.setItem("userEmail", email);
+      setIsSignedIn(true);
       alert(`Signed in as ${email}`);
-      navigate("/welcome"); // 👈 Redirect to Welcome Page
+      navigate("/welcome");
     } else {
       alert("Please enter valid credentials.");
     }
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem("signedIn");
+    localStorage.removeItem("userEmail");
+    setIsSignedIn(false);
+    alert("Signed out successfully.");
+    navigate("/signin");
   };
 
   return (
@@ -32,48 +49,66 @@ function SignIn() {
         fontFamily: "Arial, sans-serif"
       }}
     >
-      <h1>Welcome Back</h1>
-      <form
-        onSubmit={handleSignIn}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          padding: "2rem",
-          borderRadius: "8px",
-          backgroundColor: "rgba(255, 255, 255, 0.1)"
-        }}
-      >
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
+      <h1>{isSignedIn ? "Welcome Back" : "Sign In"}</h1>
+
+      {!isSignedIn ? (
+        <form
+          onSubmit={handleSignIn}
           style={{
-            padding: "0.8rem",
-            borderRadius: "4px",
-            border: "none",
-            fontSize: "1rem"
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            padding: "2rem",
+            borderRadius: "8px",
+            backgroundColor: "rgba(255, 255, 255, 0.1)"
           }}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={{
-            padding: "0.8rem",
-            borderRadius: "4px",
-            border: "none",
-            fontSize: "1rem"
-          }}
-        />
+        >
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={{
+              padding: "0.8rem",
+              borderRadius: "4px",
+              border: "none",
+              fontSize: "1rem"
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={{
+              padding: "0.8rem",
+              borderRadius: "4px",
+              border: "none",
+              fontSize: "1rem"
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              padding: "0.8rem",
+              borderRadius: "4px",
+              border: "none",
+              fontWeight: "bold",
+              backgroundColor: "#fff",
+              color: "#2a5298",
+              cursor: "pointer"
+            }}
+          >
+            Sign In
+          </button>
+        </form>
+      ) : (
         <button
-          type="submit"
+          onClick={handleSignOut}
           style={{
-            padding: "0.8rem",
+            padding: "0.8rem 1.5rem",
             borderRadius: "4px",
             border: "none",
             fontWeight: "bold",
@@ -82,9 +117,9 @@ function SignIn() {
             cursor: "pointer"
           }}
         >
-          Sign In
+          Sign Out
         </button>
-      </form>
+      )}
     </div>
   );
 }
