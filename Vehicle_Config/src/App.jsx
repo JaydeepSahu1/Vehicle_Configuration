@@ -21,6 +21,7 @@ function App() {
           <Route path="/configuration" element={<DefaultConfigurationPage />} />
           <Route path="/configure" element={<ConfigurePage/>}/>
           <Route path="/about" element={<AboutUs/>}/>
+          <Route path="/invoice" element={<InvoicePage/>}/>
         </Routes>
       </Layout>
     </Router>

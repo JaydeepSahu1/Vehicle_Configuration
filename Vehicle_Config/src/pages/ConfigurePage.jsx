@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Sample configurable items with "in-lieu of" prices
 const configOptions = {
   stdFeatures: [
     { name: "Sunroof", price: "₹25,000" },
@@ -32,9 +31,6 @@ function ConfigurePage() {
   const handleChange = (tab, value) => {
     setSelectedOptions((prev) => ({ ...prev, [tab]: value }));
   };
-
-  const handleConfirm = () => navigate("/invoice");
-  const handleCancel = () => navigate("/configuration");
 
   return (
     <div
@@ -88,8 +84,27 @@ function ConfigurePage() {
 
         {/* Navigation Buttons */}
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", marginTop: "1rem" }}>
-          <button onClick={handleConfirm} style={buttonStyle}>Confirm Order</button>
-          <button onClick={handleCancel} style={buttonStyle}>Cancel</button>
+          <button
+            style={buttonStyle}
+            onClick={() =>
+              navigate("/invoice", {
+                state: {
+                  stdFeature: selectedOptions.stdFeatures,
+                  interior: selectedOptions.interior,
+                  exterior: selectedOptions.exterior
+                }
+              })
+            }
+          >
+            Confirm Order
+          </button>
+
+          <button
+            style={buttonStyle}
+            onClick={() => navigate("/configuration")}
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>

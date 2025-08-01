@@ -15,8 +15,9 @@ function DefaultConfigurationPage() {
     price: "₹22,50,000"
   };
 
+  // ✅ Updated to pass config data to Invoice page
   const handleConfirm = () => {
-    navigate("/invoice");
+    navigate("/invoice", { state: defaultConfig });
   };
 
   const handleConfigure = () => {
@@ -63,24 +64,9 @@ function DefaultConfigurationPage() {
         ))}
 
         <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem" }}>
-          <button
-            onClick={handleConfirm}
-            style={buttonStyle}
-          >
-            Confirm Order
-          </button>
-          <button
-            onClick={handleConfigure}
-            style={buttonStyle}
-          >
-            Configure
-          </button>
-          <button
-            onClick={handleModify}
-            style={buttonStyle}
-          >
-            Modify Selection
-          </button>
+          <button onClick={handleConfirm} style={buttonStyle}>Confirm Order</button>
+          <button onClick={handleConfigure} style={buttonStyle}>Configure</button>
+          <button onClick={handleModify} style={buttonStyle}>Modify Selection</button>
         </div>
       </div>
     </div>
