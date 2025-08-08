@@ -1,0 +1,347 @@
+INSERT INTO segment_master (seg_id, seg_name, min_quantity) VALUES
+(1, 'Small Car', 8),
+(2, 'Compact Car', 6),
+(3, 'Sedan', 5),
+(4, 'SUVs', 3),
+(5, 'Luxury Car', 2);
+
+
+INSERT INTO mfg_master (mfg_id, mfg_name) VALUES
+(3, 'BMW'),
+(1, 'Hundai'),
+(4, 'Mahindra'),
+(2, 'TATA');
+
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (1, 1, 1);-- Small Car - Hundai
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (2, 1, 2); -- Small Car - TATA
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (3, 2, 1); -- Compact Car - Hundai
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (4, 2, 2); -- Compact Car - TATA
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (5, 2, 4); -- Compact Car - Mahindra
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (6, 3, 1); -- Sedan - Hundai
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (7, 3, 3); -- Sedan - BMW
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (9, 4, 3); -- SUVs - Mahindra
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (8, 4, 4); -- SUVs - BMW
+INSERT INTO seg_mfg_association (seg_mfg_associd, seg_id, mfg_id) VALUES (10, 5, 3);-- Luxury Car - BMW
+
+INSERT INTO component_master (comp_id, comp_name) VALUES (23, '16-inch Wheels');
+INSERT INTO component_master (comp_id, comp_name) VALUES (1, '177-hp, 2.4-liter, 16-Valve, DOHC, i-VTEC®, 4-Cylinder Engine');
+INSERT INTO component_master (comp_id, comp_name) VALUES (7, '3-Point rear Seat Belts');
+INSERT INTO component_master (comp_id, comp_name) VALUES (2, '5-Speed Manual Transmission');
+INSERT INTO component_master (comp_id, comp_name) VALUES (10, 'Advanced Compatibility Engineering? (ACE?) body structure');
+INSERT INTO component_master (comp_id, comp_name) VALUES (12, 'Anti-Lock Braking System (ABS)');
+INSERT INTO component_master (comp_id, comp_name) VALUES (27, 'Black colour bumper');
+INSERT INTO component_master (comp_id, comp_name) VALUES (16, 'Blue star Air Conditioning with Air Filtration System');
+INSERT INTO component_master (comp_id, comp_name) VALUES (14, 'Child-Seat Tether Anchor (Rear-Center)');
+INSERT INTO component_master (comp_id, comp_name) VALUES (19, 'Cruise Control');
+INSERT INTO component_master (comp_id, comp_name) VALUES (3, 'Double Wishbone Front Suspension');
+INSERT INTO component_master (comp_id, comp_name) VALUES (20, 'Driver\'s Seat With 4Way Power Adjustment');
+INSERT INTO component_master (comp_id, comp_name) VALUES (9, 'Dual-Stage, Dual Threshold Front Airbags (SRS)');
+INSERT INTO component_master (comp_id, comp_name) VALUES (15, 'Emergency Trunk Opener');
+INSERT INTO component_master (comp_id, comp_name) VALUES (24, 'Flat Blade Windshield Wipers');
+INSERT INTO component_master (comp_id, comp_name) VALUES (11, 'Four-wheel Disc Brakes');
+INSERT INTO component_master (comp_id, comp_name) VALUES (8, 'Front 3-Point Seat Belts with Automatic Tensioning System');
+INSERT INTO component_master (comp_id, comp_name) VALUES (5, 'Front and Rear Stabilizer Bars');
+INSERT INTO component_master (comp_id, comp_name) VALUES (4, 'Independent Multi-Link Rear Suspension');
+INSERT INTO component_master (comp_id, comp_name) VALUES (21, 'JBC 160-Watt AM/FM/CD Audio System with 2 speakers');
+INSERT INTO component_master (comp_id, comp_name) VALUES (13, 'Lower Anchors and Tethers for Children (LATCH)');
+INSERT INTO component_master (comp_id, comp_name) VALUES (18, 'Power Door Locks');
+INSERT INTO component_master (comp_id, comp_name) VALUES (17, 'Power Windows with Auto-Up/Down Driver\'s and Front pax\'s windows');
+INSERT INTO component_master (comp_id, comp_name) VALUES (25, 'Security System');
+INSERT INTO component_master (comp_id, comp_name) VALUES (22, 'Tilt and Telescopic Steering Column');
+INSERT INTO component_master (comp_id, comp_name) VALUES (6, 'Variable Gear Ratio (VGR) Power-Assisted Rack-and-Pinion Steering');
+INSERT INTO component_master (comp_id, comp_name) VALUES (26, 'White body colour');
+
+
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (1, 'i20', 1, 1, 8, 100.00, '/images/i20.jpg');  -- Small Car
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (2, 'Verna', 1, 3, 5, 300.00, '/images/verna.jpg'); -- Sedan
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (3, 'Creta', 1, 4, 3, 400.00, '/images/creta.jpg'); -- SUVs
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (4, 'Tiago', 2, 1, 8, 100.00, '/images/tiago.jpg'); -- Small Car
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (5, 'Tigor', 2, 3, 5, 300.00, '/images/tigor.jpg'); -- Sedan
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (6, 'Harrier', 2, 4, 3, 400.00, '/images/harrier.jpg'); -- SUVs
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (7, '1 Series', 3, 2, 6, 200.00, '/images/1series.jpg'); -- Compact Car
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (8, '3 Series', 3, 3, 5, 300.00, '/images/3series.jpg'); -- Sedan
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (9, 'X5', 3, 5, 2, 500.00, '/images/x5.jpg'); -- Luxury Car
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (10, 'XUV300', 4, 4, 3, 400.00, '/images/xuv300.jpg'); -- SUVs
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (11, 'Bolero', 4, 4, 3, 400.00, '/images/bolero.jpg'); -- SUVs
+INSERT INTO model_master (model_id, model_name, mfg_id, seg_id, min_qty, price, image_path) VALUES (12, 'Thar', 4, 4, 3, 400.00, '/images/thar.jpg'); -- SUVs
+
+
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (1, 1, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (2, 1, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (3, 1, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (4, 1, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (5, 1, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (6, 1, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (7, 2, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (8, 2, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (9, 2, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (10, 2, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (11, 2, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (12, 2, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (13, 3, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (14, 3, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (15, 3, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (16, 3, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (17, 3, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (18, 3, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (19, 4, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (20, 4, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (21, 4, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (22, 4, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (23, 4, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (24, 4, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (25, 5, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (26, 5, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (27, 5, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (28, 5, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (29, 5, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (30, 5, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (31, 6, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (32, 6, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (33, 6, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (34, 6, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (35, 6, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (36, 6, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (37, 7, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (38, 7, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (39, 7, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (40, 7, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (41, 7, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (42, 7, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (43, 8, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (44, 8, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (45, 8, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (46, 8, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (47, 8, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (48, 8, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (49, 9, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (50, 9, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (51, 9, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (52, 9, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (53, 9, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (54, 9, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (55, 10, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (56, 10, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (57, 10, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (58, 10, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (59, 10, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (60, 10, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (61, 11, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (62, 11, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (63, 11, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (64, 11, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (65, 11, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (66, 11, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (67, 12, 1, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (68, 12, 2, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (69, 12, 3, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (70, 12, 4, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (71, 12, 5, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (72, 12, 6, 'C', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (73, 1, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (74, 1, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (75, 1, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (76, 1, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (77, 2, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (78, 2, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (79, 2, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (80, 2, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (81, 3, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (82, 3, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (83, 3, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (84, 3, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (85, 4, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (86, 4, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (87, 4, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (88, 4, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (89, 5, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (90, 5, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (91, 5, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (92, 5, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (93, 6, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (94, 6, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (95, 6, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (96, 6, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (97, 7, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (98, 7, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (99, 7, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (100, 7, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (101, 8, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (102, 8, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (103, 8, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (104, 8, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (105, 9, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (106, 9, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (107, 9, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (108, 9, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (109, 10, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (110, 10, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (111, 10, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (112, 10, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (113, 11, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (114, 11, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (115, 11, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (116, 11, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (117, 12, 7, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (118, 12, 8, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (119, 12, 11, 'S', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (120, 12, 12, 'S', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (121, 1, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (122, 1, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (123, 1, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (124, 1, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (125, 2, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (126, 2, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (127, 2, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (128, 2, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (129, 3, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (130, 3, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (131, 3, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (132, 3, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (133, 4, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (134, 4, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (135, 4, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (136, 4, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (137, 5, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (138, 5, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (139, 5, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (140, 5, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (141, 6, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (142, 6, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (143, 6, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (144, 6, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (145, 7, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (146, 7, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (147, 7, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (148, 7, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (149, 8, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (150, 8, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (151, 8, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (152, 8, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (153, 9, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (154, 9, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (155, 9, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (156, 9, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (157, 10, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (158, 10, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (159, 10, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (160, 10, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (161, 11, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (162, 11, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (163, 11, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (164, 11, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (165, 12, 9, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (166, 12, 13, 'I', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (167, 12, 16, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (168, 12, 21, 'I', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (169, 1, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (170, 1, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (171, 1, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (172, 1, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (173, 2, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (174, 2, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (175, 2, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (176, 2, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (177, 3, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (178, 3, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (179, 3, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (180, 3, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (181, 4, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (182, 4, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (183, 4, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (184, 4, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (185, 5, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (186, 5, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (187, 5, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (188, 5, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (189, 6, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (190, 6, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (191, 6, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (192, 6, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (193, 7, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (194, 7, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (195, 7, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (196, 7, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (197, 8, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (198, 8, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (199, 8, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (200, 8, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (201, 9, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (202, 9, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (203, 9, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (204, 9, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (205, 10, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (206, 10, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (207, 10, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (208, 10, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (209, 11, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (210, 11, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (211, 11, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (212, 11, 27, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (213, 12, 23, 'E', 'Y');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (214, 12, 24, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (215, 12, 25, 'E', 'N');
+INSERT INTO vehicle_detail (config_id, model_id, comp_id, comp_type, is_configurable) VALUES (216, 12, 27, 'E', 'Y');
+
+
+INSERT INTO alternate_component_master (alt_id, model_id, comp_id, alt_comp_id, delta_price) VALUES
+(1, 1, 7, 10, 50.00),
+(2, 1, 12, 14, -20.00),
+(3, 1, 16, 17, 30.00),
+(4, 1, 23, 26, 40.00),
+(5, 1, 21, 22, 10.00),
+(6, 2, 7, 10, 50.00),
+(7, 2, 12, 14, -20.00),
+(8, 2, 16, 17, 30.00),
+(9, 2, 23, 26, 40.00),
+(10, 2, 21, 22, 10.00),
+(11, 3, 7, 10, 50.00),
+(12, 3, 12, 14, -20.00),
+(13, 3, 16, 17, 30.00),
+(14, 3, 23, 26, 40.00),
+(15, 3, 21, 22, 10.00),
+(16, 4, 7, 10, 50.00),
+(17, 4, 12, 14, -20.00),
+(18, 4, 16, 17, 30.00),
+(19, 4, 23, 26, 40.00),
+(20, 4, 21, 22, 10.00),
+(21, 5, 7, 10, 50.00),
+(22, 5, 12, 14, -20.00),
+(23, 5, 16, 17, 30.00),
+(24, 5, 23, 26, 40.00),
+(25, 5, 21, 22, 10.00),
+(26, 6, 7, 10, 50.00),
+(27, 6, 12, 14, -20.00),
+(28, 6, 16, 17, 30.00),
+(29, 6, 23, 26, 40.00),
+(30, 6, 21, 22, 10.00),
+(31, 7, 7, 10, 50.00),
+(32, 7, 12, 14, -20.00),
+(33, 7, 16, 17, 30.00),
+(34, 7, 23, 26, 40.00),
+(35, 7, 21, 22, 10.00),
+(36, 8, 7, 10, 50.00),
+(37, 8, 12, 14, -20.00),
+(38, 8, 16, 17, 30.00),
+(39, 8, 23, 26, 40.00),
+(40, 8, 21, 22, 10.00),
+(41, 9, 7, 10, 50.00),
+(42, 9, 12, 14, -20.00),
+(43, 9, 16, 17, 30.00),
+(44, 9, 23, 26, 40.00),
+(45, 9, 21, 22, 10.00),
+(46, 10, 7, 10, 50.00),
+(47, 10, 12, 14, -20.00),
+(48, 10, 16, 17, 30.00),
+(49, 10, 23, 26, 40.00),
+(50, 10, 21, 22, 10.00),
+(51, 11, 7, 10, 50.00),
+(52, 11, 12, 14, -20.00),
+(53, 11, 16, 17, 30.00),
+(54, 11, 23, 26, 40.00),
+(55, 11, 21, 22, 10.00),
+(56, 12, 7, 10, 50.00),
+(57, 12, 12, 14, -20.00),
+(58, 12, 16, 17, 30.00),
+(59, 12, 23, 26, 40.00),
+(60, 12, 21, 22, 10.00);
